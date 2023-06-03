@@ -2,10 +2,10 @@
 //  Operator.swift
 //  Calculator
 //
-//  Created by 1 on 2023/06/03.
+//  Created by Hemg on 2023/06/03.
 //
 
-enum Operator: Character, CaseIterable {
+enum Operator: Character, CaseIterable, CalculateItem {
     case add = "+"
     case subtract = "-"
     case divide = "/"
@@ -15,29 +15,29 @@ enum Operator: Character, CaseIterable {
     func calculate(_ lhs: Double, _ rhs: Double) -> Double {
         switch self {
         case .add:
-            return lhs + rhs
+            return add(lhs, rhs)
         case .subtract:
-            return lhs - rhs
+            return subtract(lhs, rhs)
         case .divide:
-            return lhs / rhs
+            return divide(lhs, rhs)
         case .multiply:
-            return lhs * rhs
+            return multiply(lhs, rhs)
         }
     }
 
-    func add(_ lhs: Double, _ rhs: Double) -> Double {
+    private func add(_ lhs: Double, _ rhs: Double) -> Double {
         return lhs + rhs
     }
     
-    func subtract(_ lhs: Double, _ rhs: Double) -> Double {
+    private func subtract(_ lhs: Double, _ rhs: Double) -> Double {
         return lhs - rhs
     }
     
-    func divide(_ lhs: Double, _ rhs: Double) -> Double {
+    private func divide(_ lhs: Double, _ rhs: Double) -> Double {
         return lhs / rhs
     }
     
-    func multiply(_ lhs: Double, _ rhs: Double) -> Double {
+    private func multiply(_ lhs: Double, _ rhs: Double) -> Double {
         return lhs * rhs
     }
 }
